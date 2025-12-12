@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KATZE - Panel de Adoptante</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f27f0d",
+                        "primary-light": "#fff0e0",
+                        "background-light": "#fcfaf8",
+                        "background-dark": "#221910",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#2d241b",
+                        "text-primary": "#1c140d",
+                        "text-secondary": "#9c7349",
+                        "accent-green": "#e0f2f1",
+                        "accent-green-text": "#00695c",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Custom scrollbar for cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e5e7eb; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d1d5db; 
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-primary font-display antialiased overflow-hidden">
+<div class="flex h-screen w-full overflow-hidden">
+<!-- Sidebar -->
+<aside class="w-64 flex-shrink-0 border-r border-[#e8dbce] bg-surface-light dark:bg-surface-dark flex flex-col h-full transition-all duration-300">
+<div class="p-6 pb-2">
+<div class="flex items-center gap-3 mb-8">
+<div class="bg-center bg-no-repeat bg-cover rounded-full h-10 w-10 shadow-sm border-2 border-primary/20" data-alt="Katze logo with a minimalist cat silhouette" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBi869T2DUEoGcU-i8gfnTNLUDUuSVYppx-R5_WtHpNBHf4DoVJWUoBYP74omR8_oAhp75zk20buLGnVW3kQMqEPtLuKkhHp1VybvvJlN11e-UU8Hmv7nv36KNCAlNo7Kf9_BNd0g0KJ6C8SVzcrtWxv0I_4VNIQd2t44rkMRftIDLC3OwRmaRkS-vdrWi9IrN3pygHARzN_3IGJThFS0r_KYySepH9SKMR3VayXnVqGBd0DihWnC7uDwPXMyfh1vD_6_XP8RpPD9U");'></div>
+<div class="flex flex-col">
+<h1 class="text-text-primary dark:text-white text-lg font-bold tracking-tight">KATZE</h1>
+<p class="text-text-secondary text-xs font-medium">Comunidad Felina</p>
+</div>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary/10 text-primary dark:text-primary transition-colors group" href="#">
+<span class="material-symbols-outlined fill text-primary">grid_view</span>
+<span class="text-sm font-semibold">Inicio</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-text-primary dark:text-gray-300 hover:bg-background-light dark:hover:bg-white/5 transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">description</span>
+<span class="text-sm font-medium">Mis Solicitudes</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-text-primary dark:text-gray-300 hover:bg-background-light dark:hover:bg-white/5 transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">favorite</span>
+<span class="text-sm font-medium">Seguimiento</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-text-primary dark:text-gray-300 hover:bg-background-light dark:hover:bg-white/5 transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">person</span>
+<span class="text-sm font-medium">Perfil</span>
+</a>
+</nav>
+</div>
+<div class="mt-auto p-6 pt-2">
+<button class="w-full flex items-center justify-center gap-2 rounded-lg py-3 px-4 bg-primary text-white text-sm font-bold shadow-md hover:bg-primary/90 transition-all hover:shadow-lg hover:-translate-y-0.5">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                    Nueva Solicitud
+                </button>
+<a class="flex items-center gap-3 px-4 py-3 mt-4 rounded-lg text-text-secondary hover:text-text-primary hover:bg-background-light dark:hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="text-sm font-medium">Cerrar Sesión</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col h-full overflow-hidden bg-[#fcfaf8] dark:bg-background-dark relative">
+<!-- Header/Top Bar -->
+<header class="h-16 flex items-center justify-between px-8 border-b border-[#e8dbce]/50 bg-white/50 backdrop-blur-sm sticky top-0 z-10">
+<div class="flex items-center gap-2 text-text-secondary text-sm">
+<span>Panel</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-text-primary font-medium">Dashboard</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="relative p-2 rounded-full hover:bg-gray-100 dark:hover:bg-white/5 transition-colors text-text-secondary">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-gray-200">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-bold text-text-primary dark:text-white leading-none">Laura G.</p>
+<p class="text-xs text-text-secondary mt-1">Adoptante</p>
+</div>
+<div class="h-10 w-10 rounded-full bg-cover bg-center border-2 border-white shadow-sm" data-alt="Profile picture of a smiling woman" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBQFe44GO73bAWtiexPNMK4vFmzP2PQQS0FjZH73SXDcbyXHRqroxSik-YXv7igolM8M4DDd0ulBx9kvY-q1CPTzKfSwW9impVpVlUBVy6VfBiDTS9skX4b04ppUqd-a0MvyR4tLIni4q3_36VAVmS7PrgJKHxGb-_cxN8ULF3SMhhHYz5LdyaksZ5trkuWLyVDSjbCHHUPsy7beowxoFqWr0W4RFxNOyyojPpPanGQuH2xjsdE9SqdDKyb8YjFmCMm3yeSlXo_YwI");'></div>
+</div>
+</div>
+</header>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto p-8 scroll-smooth">
+<div class="max-w-6xl mx-auto flex flex-col gap-8 pb-10">
+<!-- Welcome Heading -->
+<section>
+<div class="flex flex-col gap-2">
+<h2 class="text-3xl font-black text-text-primary dark:text-white tracking-tight">¡Hola, Laura! 🐾</h2>
+<p class="text-text-secondary text-base max-w-2xl">Bienvenida a tu panel. Gracias por cambiar la vida de un michi.</p>
+</div>
+</section>
+<!-- Stats Cards -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-surface-light dark:bg-surface-dark p-6 rounded-xl border border-[#e8dbce] shadow-sm flex flex-col gap-4 relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="absolute right-0 top-0 w-24 h-24 bg-primary/10 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+<div class="flex items-center gap-3 z-10">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined">pets</span>
+</div>
+<span class="text-text-secondary text-sm font-semibold uppercase tracking-wide">Solicitudes Activas</span>
+</div>
+<p class="text-4xl font-bold text-text-primary dark:text-white z-10">1</p>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-6 rounded-xl border border-[#e8dbce] shadow-sm flex flex-col gap-4 relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="absolute right-0 top-0 w-24 h-24 bg-blue-500/10 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+<div class="flex items-center gap-3 z-10">
+<div class="p-2 bg-blue-500/10 rounded-lg text-blue-600">
+<span class="material-symbols-outlined">assignment</span>
+</div>
+<span class="text-text-secondary text-sm font-semibold uppercase tracking-wide">Reportes Pendientes</span>
+</div>
+<p class="text-4xl font-bold text-text-primary dark:text-white z-10">2</p>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-6 rounded-xl border border-[#e8dbce] shadow-sm flex flex-col gap-4 relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="absolute right-0 top-0 w-24 h-24 bg-green-500/10 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+<div class="flex items-center gap-3 z-10">
+<div class="p-2 bg-green-500/10 rounded-lg text-green-600">
+<span class="material-symbols-outlined">home</span>
+</div>
+<span class="text-text-secondary text-sm font-semibold uppercase tracking-wide">Gatitos Adoptados</span>
+</div>
+<p class="text-4xl font-bold text-text-primary dark:text-white z-10">0</p>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Main Column: Timeline & Application Status -->
+<div class="lg:col-span-2 flex flex-col gap-8">
+<!-- Application Status Card -->
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl border border-[#e8dbce] shadow-sm overflow-hidden">
+<div class="px-6 py-5 border-b border-[#e8dbce] flex justify-between items-center bg-[#fffbf7] dark:bg-white/5">
+<h3 class="font-bold text-lg text-text-primary dark:text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">history_edu</span>
+                                        Estado de Solicitud: <span class="text-primary ml-1">Simba</span>
+</h3>
+<span class="px-3 py-1 rounded-full text-xs font-bold bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400 border border-yellow-200 dark:border-yellow-800">En Proceso</span>
+</div>
+<div class="p-8">
+<div class="relative">
+<!-- Vertical Line -->
+<div class="absolute left-[19px] top-4 bottom-4 w-0.5 bg-[#e8dbce] z-0"></div>
+<!-- Step 1 -->
+<div class="flex gap-6 relative z-10 mb-8">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-100 border-2 border-green-500 flex items-center justify-center text-green-600 shadow-sm">
+<span class="material-symbols-outlined text-[20px]">check</span>
+</div>
+<div class="flex-1 pt-1">
+<h4 class="font-bold text-text-primary dark:text-white text-base">Solicitud Recibida</h4>
+<p class="text-sm text-text-secondary mt-1">Tu formulario ha sido revisado correctamente por nuestro equipo.</p>
+<p class="text-xs text-text-secondary/70 mt-2 font-medium">Completado el 10 Oct</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex gap-6 relative z-10 mb-8">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-100 border-2 border-green-500 flex items-center justify-center text-green-600 shadow-sm">
+<span class="material-symbols-outlined text-[20px]">check</span>
+</div>
+<div class="flex-1 pt-1">
+<h4 class="font-bold text-text-primary dark:text-white text-base">Entrevista Telefónica</h4>
+<p class="text-sm text-text-secondary mt-1">Charlamos sobre tu experiencia y expectativas.</p>
+<p class="text-xs text-text-secondary/70 mt-2 font-medium">Completado el 12 Oct</p>
+</div>
+</div>
+<!-- Step 3 (Current) -->
+<div class="flex gap-6 relative z-10 mb-8">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-white border-2 border-primary flex items-center justify-center text-primary shadow-[0_0_0_4px_rgba(242,127,13,0.15)]">
+<span class="material-symbols-outlined text-[20px]">home</span>
+</div>
+<div class="flex-1 pt-1">
+<div class="flex justify-between items-start">
+<h4 class="font-bold text-primary text-base">Visita Domiciliaria</h4>
+<button class="text-xs font-bold px-3 py-1.5 bg-primary text-white rounded hover:bg-primary/90 transition-colors">Agendar</button>
+</div>
+<p class="text-sm text-text-secondary mt-1">Pendiente de agendar fecha para conocer el futuro hogar de Simba.</p>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="flex gap-6 relative z-10">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-gray-50 border-2 border-gray-200 flex items-center justify-center text-gray-300">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+</div>
+<div class="flex-1 pt-1 opacity-60">
+<h4 class="font-bold text-text-primary dark:text-white text-base">Aprobación Final</h4>
+<p class="text-sm text-text-secondary mt-1">Entrega del michi y firma del contrato de adopción.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Banner -->
+<div class="bg-gradient-to-r from-orange-100 to-amber-50 dark:from-gray-800 dark:to-gray-800 rounded-xl p-6 flex flex-col sm:flex-row items-center justify-between gap-6 border border-orange-200 dark:border-gray-700">
+<div class="flex items-center gap-4">
+<div class="bg-white p-3 rounded-full shadow-sm text-primary dark:bg-gray-700">
+<span class="material-symbols-outlined text-2xl">photo_camera</span>
+</div>
+<div>
+<h3 class="font-bold text-text-primary dark:text-white">¿Tienes fotos nuevas?</h3>
+<p class="text-sm text-text-secondary">Sube evidencia de seguimiento para tus reportes.</p>
+</div>
+</div>
+<button class="px-5 py-2.5 bg-white text-primary border border-primary/20 font-bold rounded-lg shadow-sm hover:bg-primary hover:text-white transition-all whitespace-nowrap text-sm">
+                                    Subir Evidencia
+                                </button>
+</div>
+</div>
+<!-- Right Column: Featured Cat & Notifications -->
+<div class="flex flex-col gap-8">
+<!-- Current Adoption Focus -->
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl border border-[#e8dbce] shadow-sm overflow-hidden flex flex-col">
+<div class="h-48 w-full bg-cover bg-center relative" data-alt="Orange tabby cat named Simba sitting comfortably" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDoHITX0e9lJMQRgrVSrjMxu1w1tkXOZj-uBa23iLASBA6tIUDRdb4B5NPrF_R2vBmocA3xKjV_JF-G60DgyJn7c_gmXSUC01WJVMktthUq94PnYU9p0UGyPA_DE607hEyI1OYi1VhspCJCoOXvdKrX8t7_PC2ovMvC5fhvLCr9oFZrmFZdmbPjXiFnRK7Y6R0lhoI8N1zsSIhm61JLMfuKHBQ-F2lurwgd4T-RzWjE0cCHem0YT44S1UxP4HEc_XlxGrXvjH4Pbkg");'>
+<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+<h3 class="text-white font-bold text-xl">Simba</h3>
+<p class="text-white/80 text-sm">Macho • 2 Años • Naranja</p>
+</div>
+</div>
+<div class="p-5 flex flex-col gap-3">
+<div class="flex items-start gap-3 p-3 bg-blue-50 dark:bg-blue-900/10 rounded-lg">
+<span class="material-symbols-outlined text-blue-500 mt-0.5">info</span>
+<p class="text-xs text-blue-800 dark:text-blue-200 leading-relaxed">
+                                            Recuerda preparar un espacio seguro para la llegada de Simba. Te recomendamos tener arenero, rascador y comida listos.
+                                        </p>
+</div>
+<button class="w-full mt-1 text-sm font-semibold text-text-secondary hover:text-primary transition-colors flex items-center justify-center gap-1">
+                                        Ver perfil completo <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Reminders / Notifications -->
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl border border-[#e8dbce] shadow-sm p-6">
+<h3 class="font-bold text-text-primary dark:text-white mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-yellow-500">notifications_active</span>
+                                    Recordatorios
+                                </h3>
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3 pb-3 border-b border-gray-100 dark:border-gray-800 last:border-0 last:pb-0">
+<div class="h-2 w-2 rounded-full bg-red-500"></div>
+<div class="flex-1">
+<p class="text-sm font-medium text-text-primary dark:text-white">Subir reporte mensual</p>
+<p class="text-xs text-text-secondary">Vence en 3 días</p>
+</div>
+<button class="p-1 text-gray-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+<div class="flex items-center gap-3 pb-3 border-b border-gray-100 dark:border-gray-800 last:border-0 last:pb-0">
+<div class="h-2 w-2 rounded-full bg-gray-300"></div>
+<div class="flex-1">
+<p class="text-sm font-medium text-text-primary dark:text-white">Charla de bienvenida</p>
+<p class="text-xs text-text-secondary">Mañana, 5:00 PM</p>
+</div>
+<button class="p-1 text-gray-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Help -->
+<div class="bg-[#e8dbce]/30 rounded-xl p-5 border border-[#e8dbce] text-center">
+<p class="text-sm font-medium text-text-primary mb-2">¿Necesitas ayuda?</p>
+<p class="text-xs text-text-secondary mb-3">Contacta a los voluntarios de KATZE</p>
+<button class="text-xs font-bold text-primary hover:text-primary/80 transition-colors">
+                                    Ir a Soporte
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Optional subtle background texture pattern overlay using CSS only -->
+<style>
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(#9c7349 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 50;
+        }
+    </style>
+</body></html>
