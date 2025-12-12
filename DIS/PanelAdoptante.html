@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Panel de Adoptante - KATZE</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ee8c2b", // Warm orange
+                        "primary-hover": "#d97a1f",
+                        "background-light": "#f8f7f6", // Soft beige/white
+                        "background-dark": "#221910", // Dark chocolate
+                        "accent-blue": "#4a8bad",
+                        "accent-green": "#6cad73",
+                        "text-main": "#181411",
+                        "text-secondary": "#897561",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for clean look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e6e0db;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d1c8c1;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-main dark:text-white overflow-x-hidden transition-colors duration-300">
+<!-- Navbar -->
+<header class="sticky top-0 z-50 flex items-center justify-between border-b border-solid border-b-[#f4f2f0] dark:border-[#3a2e25] bg-white dark:bg-[#221910] px-6 lg:px-10 py-3 shadow-sm">
+<div class="flex items-center gap-3 text-text-main dark:text-white">
+<div class="size-10 flex items-center justify-center text-primary bg-primary/10 rounded-full">
+<span class="material-symbols-outlined text-2xl">pets</span>
+</div>
+<h2 class="text-xl font-bold leading-tight tracking-[-0.015em]">KATZE</h2>
+</div>
+<nav class="hidden md:flex flex-1 justify-center gap-8">
+<a class="text-text-main dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors" href="#">Inicio</a>
+<a class="text-text-main dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors" href="#">Adoptar</a>
+<a class="text-text-main dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors" href="#">Donar</a>
+<a class="text-primary text-sm font-bold border-b-2 border-primary pb-0.5" href="#">Mi Panel</a>
+<a class="text-text-main dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors" href="#">Blog</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="relative p-2 text-text-secondary dark:text-gray-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1.5 right-1.5 size-2 bg-red-500 rounded-full border border-white dark:border-[#221910]"></span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-[#f4f2f0] dark:border-[#3a2e25]">
+<div class="hidden sm:flex flex-col items-end">
+<span class="text-sm font-bold">Mariana G.</span>
+<span class="text-xs text-text-secondary dark:text-gray-400">Adoptante</span>
+</div>
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-10 border-2 border-white dark:border-[#3a2e25] shadow-sm cursor-pointer" data-alt="Portrait of a smiling young woman, the user profile" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB1djMhT51F9MQVemrUQs-93fQ-wwupOwRJZ90ILWqBzNTD-ElZFMeBB2S_ZB89vo25wla1l69n9UlQ82WHevKWK6mSsUdEgwJNoR7jub79P4N93NsbPCeyLLZfxmkQ9H1Em8tnKb8Tfs9z6-8rsGRqfqYYaHKV6XNPex1-uDadwynfS3Xk8CEoR_nI99696EcLK8Ku82Y10iYFNU-CtQN2fJ7Td0ASWboHnTQvGYgWsMnVXisKBIDZvRMA5KeDSVU9aPsTrvOu8Ng");'>
+</div>
+</div>
+</div>
+</header>
+<div class="relative flex min-h-screen w-full flex-col">
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-4 md:px-10 lg:px-40 flex flex-1 justify-center py-8">
+<div class="layout-content-container flex flex-col max-w-[1200px] flex-1 gap-8">
+<!-- Welcome Header -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 p-4">
+<div class="flex flex-col gap-2">
+<h1 class="text-3xl md:text-4xl font-black leading-tight tracking-tight text-text-main dark:text-white">
+                                ¡Hola, Mariana! <span class="text-primary">🐾</span>
+</h1>
+<p class="text-text-secondary dark:text-gray-300 text-lg font-medium max-w-xl">
+                                Bienvenida a tu espacio personal. Aquí puedes ver el estado de tus trámites y compartir el amor por tus michis.
+                            </p>
+</div>
+<button class="hidden md:flex items-center gap-2 bg-white dark:bg-[#2d2218] border border-gray-200 dark:border-[#3a2e25] text-text-main dark:text-white px-5 py-2.5 rounded-xl font-bold shadow-sm hover:bg-gray-50 dark:hover:bg-[#3a2e25] transition-all">
+<span class="material-symbols-outlined text-primary">add_circle</span>
+                            Nueva Solicitud
+                        </button>
+</div>
+<!-- Dashboard Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 px-4">
+<!-- Left Column: Applications & Status (Main Focus) -->
+<div class="lg:col-span-8 flex flex-col gap-8">
+<!-- Tabs (Visual) -->
+<div class="flex border-b border-[#e6e0db] dark:border-[#3a2e25] gap-8">
+<a class="flex items-center gap-2 border-b-[3px] border-b-primary text-text-main dark:text-white pb-3 px-1" href="#">
+<span class="material-symbols-outlined text-primary text-[20px]">assignment</span>
+<p class="text-sm font-bold tracking-wide">Mis Solicitudes</p>
+</a>
+<a class="flex items-center gap-2 border-b-[3px] border-b-transparent text-text-secondary dark:text-gray-500 hover:text-text-main dark:hover:text-gray-300 transition-colors pb-3 px-1" href="#">
+<span class="material-symbols-outlined text-[20px]">photo_library</span>
+<p class="text-sm font-bold tracking-wide">Diario de Adopción</p>
+</a>
+</div>
+<!-- Section: Active Applications -->
+<div class="flex flex-col gap-6">
+<div class="flex justify-between items-center">
+<h3 class="text-xl font-bold text-text-main dark:text-white">Solicitudes en curso</h3>
+<span class="text-xs font-bold bg-primary/10 text-primary px-3 py-1 rounded-full">1 Activa</span>
+</div>
+<!-- Card 1: In Progress -->
+<div class="group flex flex-col md:flex-row items-stretch gap-6 rounded-2xl bg-white dark:bg-[#2d2218] p-5 shadow-sm border border-[#f4f2f0] dark:border-[#3a2e25] hover:shadow-md transition-shadow">
+<div class="w-full md:w-48 shrink-0 bg-center bg-no-repeat bg-cover rounded-xl aspect-[4/3] md:aspect-auto" data-alt="Cute fluffy tabby cat named Mish looking at the camera" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAZtmINdjn8LJAJHlwy49tirVIvdpsfazLQ2tyzfBKTJbNdAICqknoRRP4LYtCWoWFvyH5m-vFerdyEd6UPc30RVIltPY-hI2Elm2h_pm4cEwn7b1M3LZ0N38lBwZ52aE-mMTl2eHLB_NkinIxrhbWjxIgrcRjXyxdZpjFT9N9JYeJEY_Bf38FZuxZ82yIfVNKzSbBWQ9AuCkGESSqT_tFeR04X-oX1XrrM0txa_p6WRFfGiRXK5ZGiYyaJ2z9BFmLD3Hp5q2uQDoY");'>
+</div>
+<div class="flex flex-1 flex-col justify-between gap-4">
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400 text-xs font-bold px-2 py-1 rounded-md uppercase tracking-wider">En Revisión</span>
+<span class="text-text-secondary dark:text-gray-400 text-xs">• ID #4092</span>
+</div>
+<span class="text-text-secondary dark:text-gray-500 text-xs">Actualizado hace 2h</span>
+</div>
+<h4 class="text-2xl font-black text-text-main dark:text-white">Mish</h4>
+<p class="text-sm text-text-secondary dark:text-gray-300 line-clamp-2">
+                                                Estamos revisando tu formulario y contactando a tus referencias. El equipo de adopciones se comunicará contigo pronto.
+                                            </p>
+</div>
+<!-- Stepper -->
+<div class="flex flex-col gap-2">
+<div class="flex justify-between text-xs font-bold text-text-secondary dark:text-gray-400">
+<span class="text-primary">Solicitud</span>
+<span class="text-primary">Entrevista</span>
+<span>Visita</span>
+<span>Aprobado</span>
+</div>
+<div class="h-2 w-full bg-[#f4f2f0] dark:bg-[#3a2e25] rounded-full overflow-hidden">
+<div class="h-full bg-primary w-1/2 rounded-full"></div>
+</div>
+</div>
+<div class="flex justify-end pt-2">
+<button class="flex items-center gap-1 text-sm font-bold text-text-main dark:text-white hover:text-primary transition-colors">
+                                                Ver detalles completos
+                                                <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2: History/Past -->
+<div class="opacity-80 hover:opacity-100 transition-opacity flex flex-col md:flex-row items-center gap-4 rounded-2xl bg-white dark:bg-[#2d2218] p-4 shadow-sm border border-[#f4f2f0] dark:border-[#3a2e25]">
+<div class="size-16 shrink-0 bg-center bg-no-repeat bg-cover rounded-lg" data-alt="Black cat named Luna sitting elegantly" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBSPE2baeH5MlU1aohWqUrETmFq5B-WO5PSak-8AnvsIVBtqU2UrBjk54gcMtyFy4xYVWlIITxRDdmXMtSReuuhlGwXE0pMRQ2CmvLOr2Tsj_oZFJgLKnQYsUQURA5rQEzKWQPMuvk3PEu7NxpzyLULb-VxXvNrAV5pieC7mdY2G-AG3y0m53-v4ytwTS-DbQM4JUrqI4vDe1U976iWMT1C4aWnacSkDfbxo9WLsH2gP8HXZQD7crGNYpKqC6Hg7sE4-ffzrVe8JKw");'>
+</div>
+<div class="flex flex-1 flex-col md:flex-row md:items-center justify-between gap-2">
+<div>
+<h4 class="text-lg font-bold text-text-main dark:text-white">Luna</h4>
+<p class="text-sm text-text-secondary dark:text-gray-400">Adoptada el 12 de Octubre, 2023</p>
+</div>
+<div class="flex items-center gap-2 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-3 py-1 rounded-lg">
+<span class="material-symbols-outlined text-lg">check_circle</span>
+<span class="text-xs font-bold uppercase">Finalizado</span>
+</div>
+</div>
+<button class="text-text-secondary dark:text-gray-400 hover:text-primary p-2">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Post-Adoption Section -->
+<div class="pt-6">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-xl font-bold text-text-main dark:text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">photo_camera</span>
+                                        Seguimiento Post-Adopción
+                                    </h3>
+</div>
+<div class="bg-primary/5 dark:bg-primary/10 rounded-2xl p-6 border border-primary/10">
+<div class="flex flex-col md:flex-row gap-6">
+<div class="flex-1 space-y-3">
+<h4 class="font-bold text-lg dark:text-white">¿Cómo está Luna?</h4>
+<p class="text-sm text-text-secondary dark:text-gray-300">
+                                                Comparte una foto o nota para completar tu seguimiento mensual y ayudar a otros adoptantes a inspirarse.
+                                            </p>
+<div class="flex gap-3 pt-2">
+<button class="bg-primary hover:bg-primary-hover text-white text-sm font-bold py-2.5 px-5 rounded-xl transition-colors shadow-lg shadow-primary/20 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">upload</span>
+                                                    Subir Foto
+                                                </button>
+<button class="bg-white dark:bg-[#3a2e25] hover:bg-gray-50 text-text-main dark:text-white text-sm font-bold py-2.5 px-5 rounded-xl border border-gray-200 dark:border-[#4a3b32] transition-colors">
+                                                    Escribir Nota
+                                                </button>
+</div>
+</div>
+<!-- Recent uploads preview -->
+<div class="flex gap-2">
+<div class="size-24 rounded-xl bg-cover bg-center border-2 border-white dark:border-[#3a2e25] shadow-sm rotate-[-3deg]" data-alt="Luna sleeping on a sofa" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBKFC1O_XS8dx-Fy3s7wDSEpxAvsJ2ZlNsaeOXnbFtZ6KNDPXJx51t-odZang-frse4RW_2_0SYKZmcNXvPpRLcD_fwvpOqgvP15lpCeWaZNOvPXheiKv7LzT0udTrON3jEuYUJS33N54PONf3ZGY6rsqqEcQfiRNEM5eaNtw647oOFNcYkVrRSGOC-IStDppP3Dzm6atzsPO2DTRp2oJFun6UBfom_4qFM08wxsMaTzck31CTK7z8O4F4IqGCdx2e9QZLubew3NPg");'></div>
+<div class="size-24 rounded-xl bg-cover bg-center border-2 border-white dark:border-[#3a2e25] shadow-sm rotate-[3deg] translate-y-2" data-alt="Luna playing with a toy" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBCEysEg4uP1UbZA2-dC2NGvxwGs3Mkc1rvSfvAA-62zSGrZU0t4_k4VS7QZ9yDvJTXDoBPNOwUmcyvvkU_SQa5WxDtFw_Nx8uB_zHJvOL55b-QMDYlOF6RIfmdTouVCLeoWAdE1cgLuxXq1CL2gDe-LV6TfiyV-Mgg98ybEGEt8MTSAGcc_FxbbU1bn94gU6jACKBUVINttGMFzNXyk9MyvhoI5nlqY8_OlA7J66qaYdj-YOu_lXJpuBDTHmub577vOqIJn9ReIWQ");'></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Sidebar Resources -->
+<div class="lg:col-span-4 flex flex-col gap-6">
+<!-- Resource Card -->
+<div class="bg-white dark:bg-[#2d2218] rounded-2xl p-6 shadow-sm border border-[#f4f2f0] dark:border-[#3a2e25]">
+<h3 class="font-bold text-lg mb-4 text-text-main dark:text-white">Recursos Útiles</h3>
+<ul class="flex flex-col gap-3">
+<li>
+<a class="group flex items-center gap-3 p-3 rounded-xl hover:bg-[#f8f7f6] dark:hover:bg-[#3a2e25] transition-colors" href="#">
+<div class="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 p-2 rounded-lg group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-xl">menu_book</span>
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-bold text-text-main dark:text-white">Guía de primeros días</span>
+<span class="text-xs text-text-secondary dark:text-gray-400">PDF • 5 min de lectura</span>
+</div>
+</a>
+</li>
+<li>
+<a class="group flex items-center gap-3 p-3 rounded-xl hover:bg-[#f8f7f6] dark:hover:bg-[#3a2e25] transition-colors" href="#">
+<div class="bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 p-2 rounded-lg group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-xl">local_hospital</span>
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-bold text-text-main dark:text-white">Veterinarias 24h</span>
+<span class="text-xs text-text-secondary dark:text-gray-400">Directorio de confianza</span>
+</div>
+</a>
+</li>
+<li>
+<a class="group flex items-center gap-3 p-3 rounded-xl hover:bg-[#f8f7f6] dark:hover:bg-[#3a2e25] transition-colors" href="#">
+<div class="bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 p-2 rounded-lg group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-xl">nutrition</span>
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-bold text-text-main dark:text-white">Alimentación Felina</span>
+<span class="text-xs text-text-secondary dark:text-gray-400">Tips de expertos</span>
+</div>
+</a>
+</li>
+</ul>
+</div>
+<!-- Support Widget -->
+<div class="relative overflow-hidden bg-gradient-to-br from-[#221910] to-[#3a2e25] rounded-2xl p-6 text-white shadow-lg">
+<!-- Decoration -->
+<div class="absolute -right-6 -top-6 size-24 bg-white/10 rounded-full blur-xl"></div>
+<div class="absolute -left-6 -bottom-6 size-20 bg-primary/20 rounded-full blur-lg"></div>
+<div class="relative z-10">
+<div class="mb-4 bg-white/10 w-fit p-2 rounded-lg backdrop-blur-sm">
+<span class="material-symbols-outlined">support_agent</span>
+</div>
+<h3 class="font-bold text-lg mb-1">¿Necesitas ayuda?</h3>
+<p class="text-sm text-gray-300 mb-4">Nuestro equipo de voluntarios está disponible para dudas sobre tu proceso.</p>
+<button class="w-full py-2 bg-primary hover:bg-primary-hover text-white text-sm font-bold rounded-lg transition-colors">
+                                        Contactar Soporte
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

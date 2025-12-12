@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KATZE - Panel de Rescatista</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ee8c2b",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#221910",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#181411] overflow-hidden antialiased selection:bg-primary/30 selection:text-primary-900">
+<div class="flex h-screen w-full">
+<!-- Sidebar Navigation -->
+<aside class="hidden md:flex flex-col w-72 bg-white dark:bg-[#1a120b] border-r border-[#f4f2f0] dark:border-[#2f2216] flex-shrink-0 z-20">
+<!-- Brand Logo -->
+<div class="flex items-center gap-3 px-8 h-20 border-b border-[#f4f2f0] dark:border-[#2f2216]">
+<div class="size-8 text-primary">
+<span class="material-symbols-outlined text-[32px]">pets</span>
+</div>
+<h1 class="text-xl font-extrabold tracking-tight dark:text-white">KATZE</h1>
+</div>
+<!-- Navigation Links -->
+<nav class="flex-1 overflow-y-auto py-6 px-4 space-y-2">
+<a class="flex items-center gap-4 px-4 py-3 text-gray-500 hover:text-primary hover:bg-primary/5 rounded-xl transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:fill-1 transition-colors">dashboard</span>
+<span class="font-semibold">Dashboard</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 bg-primary/10 text-primary rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined fill-1">add_circle</span>
+<span class="font-bold">Nuevo Ingreso</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-gray-500 hover:text-primary hover:bg-primary/5 rounded-xl transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:fill-1 transition-colors">folder_open</span>
+<span class="font-semibold">Mis Casos</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-gray-500 hover:text-primary hover:bg-primary/5 rounded-xl transition-colors group" href="#">
+<div class="relative">
+<span class="material-symbols-outlined group-hover:fill-1 transition-colors">chat</span>
+<span class="absolute -top-1 -right-1 flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+</span>
+</div>
+<span class="font-semibold">Mensajes</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-gray-500 hover:text-primary hover:bg-primary/5 rounded-xl transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:fill-1 transition-colors">volunteer_activism</span>
+<span class="font-semibold">Donaciones</span>
+</a>
+</nav>
+<!-- Bottom Actions -->
+<div class="p-4 border-t border-[#f4f2f0] dark:border-[#2f2216] space-y-4">
+<div class="bg-background-light dark:bg-[#2f2216] rounded-xl p-4 flex items-center gap-3">
+<div class="h-10 w-10 rounded-full bg-gray-200 bg-center bg-cover border-2 border-white dark:border-[#1a120b]" data-alt="Profile picture of a rescuer smiling" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAKIcGOZRlXAFm-J7CmVAipcWAIajrWGE_BKhoIGeRS1o3ZqMAqRo_s931QyqFI2nzoXJD1P1wOhoGfCFeMK5pDfT8NnYqSCt_3AGZHxGybKJTRou5UKBWGjjgcH_fJJi3Mr6PzFmMumgRcS_r5zRxe0q5gnIey7Qk4CW5fORsunzchkaX1qVv6Pq_EB0MYEJDtQDSsao8pXDG9vbJV_Z9PdmPxq9euphvMtxCq9wBUrby_5amg_ZQ7d82rUHbbpfCvxst75qlzJz0');"></div>
+<div class="flex flex-col overflow-hidden">
+<span class="text-sm font-bold truncate dark:text-white">Ana García</span>
+<span class="text-xs text-gray-500 truncate">Rescatista Verificado</span>
+</div>
+</div>
+<button class="flex w-full items-center justify-center gap-2 text-gray-400 hover:text-[#181411] transition-colors py-2">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+<span class="text-sm font-medium">Cerrar Sesión</span>
+</button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col h-full overflow-hidden relative">
+<!-- Mobile Header -->
+<header class="flex md:hidden items-center justify-between px-6 py-4 bg-white dark:bg-[#1a120b] border-b border-[#f4f2f0]">
+<div class="flex items-center gap-3">
+<div class="size-6 text-primary">
+<span class="material-symbols-outlined">pets</span>
+</div>
+<span class="font-bold text-lg dark:text-white">KATZE</span>
+</div>
+<button class="text-[#181411] dark:text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<!-- Scrollable Page Content -->
+<div class="flex-1 overflow-y-auto bg-background-light dark:bg-background-dark p-6 md:p-10 lg:p-14">
+<div class="max-w-6xl mx-auto space-y-8">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2 text-primary text-sm font-semibold uppercase tracking-wider">
+<span class="material-symbols-outlined text-lg">arrow_back</span>
+                                Volver al Dashboard
+                            </div>
+<h1 class="text-4xl font-black tracking-[-0.033em] text-[#181411] dark:text-white">Nuevo Rescate 🐾</h1>
+<p class="text-[#897561] text-lg font-medium">Completa la ficha técnica para encontrarle un hogar lo antes posible.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-3 rounded-xl border border-gray-200 dark:border-gray-700 font-bold hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors dark:text-white">Guardar Borrador</button>
+</div>
+</div>
+<!-- Main Grid Form -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Image Upload & AI Analysis -->
+<div class="lg:col-span-5 flex flex-col gap-6">
+<!-- Upload Card -->
+<div class="bg-white dark:bg-[#1a120b] p-2 rounded-2xl shadow-sm border border-[#e6e0db] dark:border-[#2f2216]">
+<div class="relative group aspect-[4/5] w-full overflow-hidden rounded-xl bg-[#f4f2f0] dark:bg-[#221910] border-2 border-dashed border-gray-300 dark:border-gray-700 flex flex-col items-center justify-center text-center cursor-pointer hover:border-primary hover:bg-primary/5 transition-all">
+<!-- Placeholder State -->
+<div class="p-6 flex flex-col items-center gap-4">
+<div class="h-16 w-16 rounded-full bg-white dark:bg-[#2f2216] flex items-center justify-center shadow-sm text-primary mb-2">
+<span class="material-symbols-outlined text-[32px]">add_a_photo</span>
+</div>
+<div class="space-y-1">
+<p class="font-bold text-lg dark:text-white">Sube la foto del michi</p>
+<p class="text-sm text-gray-500">Arrastra aquí o haz clic para buscar</p>
+</div>
+<p class="text-xs text-gray-400 mt-2">Formatos: JPG, PNG (Max 5MB)</p>
+</div>
+<!-- If image was uploaded, it would look like this (hidden for now) -->
+<!-- <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('...');"></div> -->
+</div>
+</div>
+<!-- AI Analysis Panel -->
+<div class="bg-white dark:bg-[#1a120b] p-6 rounded-2xl shadow-sm border border-[#e6e0db] dark:border-[#2f2216] flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+<h3 class="font-bold text-base dark:text-white">Análisis Automático</h3>
+</div>
+<span class="text-xs font-medium text-green-600 bg-green-100 px-2 py-1 rounded-lg">Listo</span>
+</div>
+<p class="text-sm text-gray-500">Nuestra IA detectó estas características en la foto. Puedes editarlas si es necesario.</p>
+<div class="flex flex-wrap gap-2">
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg border border-primary/20 bg-primary/10 pl-2 pr-3 cursor-pointer hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-primary text-[18px]">palette</span>
+<p class="text-[#181411] dark:text-white text-xs font-bold">Tabby Naranja</p>
+<span class="material-symbols-outlined text-gray-400 hover:text-red-500 text-[16px] ml-1">close</span>
+</div>
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg border border-gray-200 bg-[#f8f7f6] dark:bg-[#2f2216] dark:border-[#443528] pl-2 pr-3 cursor-pointer">
+<span class="material-symbols-outlined text-gray-500 text-[18px]">visibility</span>
+<p class="text-[#181411] dark:text-white text-xs font-medium">Ojos Verdes</p>
+</div>
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg border border-gray-200 bg-[#f8f7f6] dark:bg-[#2f2216] dark:border-[#443528] pl-2 pr-3 cursor-pointer">
+<span class="material-symbols-outlined text-gray-500 text-[18px]">straighten</span>
+<p class="text-[#181411] dark:text-white text-xs font-medium">Adulto Pequeño</p>
+</div>
+<button class="flex h-8 w-8 items-center justify-center rounded-lg border border-dashed border-gray-300 text-gray-400 hover:text-primary hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Right Column: Details Form -->
+<div class="lg:col-span-7 flex flex-col gap-6">
+<!-- Basic Info Card -->
+<div class="bg-white dark:bg-[#1a120b] p-8 rounded-2xl shadow-sm border border-[#e6e0db] dark:border-[#2f2216] space-y-6">
+<h2 class="text-xl font-bold dark:text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-gray-400">feed</span>
+                                    Información Básica
+                                </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<label class="flex flex-col gap-2">
+<span class="text-sm font-bold text-[#181411] dark:text-gray-200">Nombre (o temporal)</span>
+<input class="w-full rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#221910] p-3 text-base focus:border-primary focus:ring-primary dark:text-white placeholder:text-gray-400" placeholder="Ej. Oliver"/>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-sm font-bold text-[#181411] dark:text-gray-200">Ubicación del hallazgo</span>
+<div class="relative">
+<input class="w-full rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#221910] p-3 pl-10 text-base focus:border-primary focus:ring-primary dark:text-white placeholder:text-gray-400" placeholder="Ej. Parque México"/>
+<span class="material-symbols-outlined absolute left-3 top-3.5 text-gray-400 text-[20px]">location_on</span>
+</div>
+</label>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<label class="flex flex-col gap-2">
+<span class="text-sm font-bold text-[#181411] dark:text-gray-200">Sexo</span>
+<select class="w-full rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#221910] p-3 text-base focus:border-primary focus:ring-primary dark:text-white">
+<option>Macho</option>
+<option>Hembra</option>
+<option>Desconocido</option>
+</select>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-sm font-bold text-[#181411] dark:text-gray-200">Edad Aprox.</span>
+<select class="w-full rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#221910] p-3 text-base focus:border-primary focus:ring-primary dark:text-white">
+<option>Cachorro (0-1 año)</option>
+<option>Adulto (1-7 años)</option>
+<option>Senior (7+ años)</option>
+</select>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-sm font-bold text-[#181411] dark:text-gray-200">Estado de Salud</span>
+<select class="w-full rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#221910] p-3 text-base focus:border-primary focus:ring-primary dark:text-white">
+<option>Saludable</option>
+<option>Herido / Enfermo</option>
+<option>En Tratamiento</option>
+</select>
+</label>
+</div>
+<label class="flex flex-col gap-2">
+<span class="text-sm font-bold text-[#181411] dark:text-gray-200">Historia / Descripción</span>
+<textarea class="w-full rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#221910] p-3 text-base focus:border-primary focus:ring-primary dark:text-white placeholder:text-gray-400 resize-none" placeholder="Cuenta la historia de cómo encontraste al gato, su personalidad, si convive con otros animales, etc..." rows="5"></textarea>
+<div class="flex justify-between text-xs text-gray-400 px-1">
+<span>Sé detallado, ayuda a la adopción.</span>
+<span>0/2000</span>
+</div>
+</label>
+</div>
+<!-- Additional Tags / Behavioral -->
+<div class="bg-white dark:bg-[#1a120b] p-8 rounded-2xl shadow-sm border border-[#e6e0db] dark:border-[#2f2216] space-y-6">
+<h2 class="text-xl font-bold dark:text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-gray-400">psychology</span>
+                                    Comportamiento y Personalidad
+                                </h2>
+<div class="flex flex-wrap gap-3">
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" type="checkbox"/>
+<div class="rounded-full px-4 py-2 bg-gray-100 dark:bg-[#221910] border border-transparent text-gray-500 font-medium peer-checked:bg-primary/10 peer-checked:text-primary peer-checked:border-primary/20 transition-all select-none">
+                                            Juguetón
+                                        </div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" type="checkbox"/>
+<div class="rounded-full px-4 py-2 bg-gray-100 dark:bg-[#221910] border border-transparent text-gray-500 font-medium peer-checked:bg-primary/10 peer-checked:text-primary peer-checked:border-primary/20 transition-all select-none">
+                                            Tímido
+                                        </div>
+</label>
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" type="checkbox"/>
+<div class="rounded-full px-4 py-2 bg-gray-100 dark:bg-[#221910] border border-transparent text-gray-500 font-medium peer-checked:bg-primary/10 peer-checked:text-primary peer-checked:border-primary/20 transition-all select-none">
+                                            Cariñoso
+                                        </div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" type="checkbox"/>
+<div class="rounded-full px-4 py-2 bg-gray-100 dark:bg-[#221910] border border-transparent text-gray-500 font-medium peer-checked:bg-primary/10 peer-checked:text-primary peer-checked:border-primary/20 transition-all select-none">
+                                            Independiente
+                                        </div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" type="checkbox"/>
+<div class="rounded-full px-4 py-2 bg-gray-100 dark:bg-[#221910] border border-transparent text-gray-500 font-medium peer-checked:bg-primary/10 peer-checked:text-primary peer-checked:border-primary/20 transition-all select-none">
+                                            Convive con perros
+                                        </div>
+</label>
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" type="checkbox"/>
+<div class="rounded-full px-4 py-2 bg-gray-100 dark:bg-[#221910] border border-transparent text-gray-500 font-medium peer-checked:bg-primary/10 peer-checked:text-primary peer-checked:border-primary/20 transition-all select-none">
+                                            Convive con gatos
+                                        </div>
+</label>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="flex items-center justify-end gap-4 pt-4 pb-20 lg:pb-0">
+<button class="px-8 py-4 rounded-xl text-gray-500 font-bold hover:text-red-500 transition-colors">Cancelar</button>
+<button class="flex items-center justify-center gap-2 px-8 py-4 bg-primary hover:bg-[#d97b20] text-white rounded-xl font-bold shadow-lg shadow-primary/20 transform hover:-translate-y-0.5 transition-all">
+<span>Publicar Caso</span>
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
